@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jean Paul Gaultier: парфуми</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,800;1,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5efe9; --ink:#240b0e; --muted:#6b4a4d; --gold:#9a6a12; --line:#d9c9b4; --panel:#ece1d6; --glow:#f0d9a8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#120607; --ink:#f4e9d8; --muted:#b9a58f; --gold:#e8b64a; --line:#3a1c1e; --panel:#1c0b0d; --glow:#4a1a14; color-scheme:dark;}
+}
+:root[data-theme="dark"]{--bg:#120607; --ink:#f4e9d8; --muted:#b9a58f; --gold:#e8b64a; --line:#3a1c1e; --panel:#1c0b0d; --glow:#4a1a14; color-scheme:dark;}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Work Sans",system-ui,sans-serif;line-height:1.65;font-size:1.05rem}
+.coil{height:26px;background:repeating-linear-gradient(0deg,var(--gold) 0 3px,transparent 3px 8px)}
+.nav{position:fixed;z-index:20;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);display:flex;gap:2px;padding:6px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);white-space:nowrap}
+.nav a{padding:.4em 1em;border-radius:999px;text-decoration:none;color:var(--ink);font-size:.95rem}
+.nav a:hover{background:var(--gold);color:var(--bg)}
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse at 50% 58%,var(--glow),var(--bg) 66%)}
+.hero h1{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:0;font-family:"Bodoni Moda",Georgia,serif;font-weight:800;line-height:.82;letter-spacing:-.03em;font-size:clamp(4.5rem,19vw,17rem);color:var(--gold);opacity:.92;pointer-events:none;text-align:center}
+.hero h1 span:last-child{font-style:italic;font-weight:500}
+.stage{position:absolute;inset:0;z-index:1;cursor:grab;touch-action:pan-y}
+.stage:active{cursor:grabbing}
+.stage canvas{display:block;width:100%;height:100%}
+.hero-note{position:absolute;z-index:2;left:clamp(20px,5vw,64px);right:clamp(20px,5vw,64px);bottom:clamp(24px,5vh,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;pointer-events:none}
+.hero-note p{margin:0;max-width:24rem}
+.hero-note small{color:var(--muted);text-align:right}
+.statement{max-width:900px;margin:0 auto;padding:clamp(56px,10vw,120px) 20px;font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(1.6rem,4.2vw,3rem);line-height:1.25;font-weight:500}
+.statement em{color:var(--gold)}
+main{max-width:1100px;margin:0 auto;padding:0 20px clamp(40px,8vw,100px)}
+section{margin-top:clamp(64px,10vw,130px)}
+h2{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:clamp(2rem,5vw,3.6rem);margin:0 0 .3em;line-height:1.1}
+.intro{max-width:38rem;color:var(--muted);margin:0 0 2rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{font:inherit;font-size:.95rem;border:1px solid var(--line);background:transparent;color:var(--ink);padding:.5em 1.3em;border-radius:999px;cursor:pointer}
+.tabs button:hover{border-color:var(--gold)}
+.tabs button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+.list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:230px 1.1fr .7fr 1.6fr;gap:8px 32px;align-items:center;padding:20px 0 20px 16px;border-top:1px solid var(--line);border-left:4px solid transparent;transition:border-color .2s,background .2s}
+.row[hidden]{display:none}
+.row:hover{border-left-color:var(--gold);background:var(--panel)}
+.row.now{border-left-color:var(--gold)}
+.row h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:800;font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0;line-height:1.1}
+.meta{color:var(--gold);font-weight:500}
+.row p{margin:0}
+.notes{color:var(--muted);font-style:italic;display:block;margin-top:.2em}
+.picks{display:grid;gap:16px;grid-template-columns:1.4fr 1fr 1fr}
+.pick{padding:28px;border-radius:28px;background:var(--panel);display:flex;flex-direction:column;gap:8px}
+.pick:first-child{background:var(--gold);color:var(--bg)}
+.pick h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:1.8rem;margin:0;line-height:1.15}
+.pick p{margin:0}
+.pick strong{font-weight:500}
+.pick:not(:first-child) p{color:var(--muted)}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:28px 24px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.timeline li{border-top:3px solid var(--gold);padding-top:14px}
+.timeline b{display:block;font-family:"Bodoni Moda",Georgia,serif;font-size:2.6rem;line-height:1;font-weight:800;color:var(--gold)}
+.timeline span{display:block;margin-top:.4em;color:var(--muted);font-size:.98rem}
+.trio-grid{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:32px}
+.trio-grid h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:500;font-size:1.7rem;margin:0 0 .3em}
+.trio-grid p{margin:0;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:18px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-family:"Bodoni Moda",Georgia,serif;font-size:1.35rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:1.6rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin:.8em 0 0;max-width:46rem;color:var(--muted)}
+#multi{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.slot{width:230px;height:240px}
+@media (max-width:820px){.slot{width:100%;height:240px}}
+footer{padding:36px 20px 48px;text-align:center;color:var(--muted);font-size:.9rem}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media (max-width:820px){.picks{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero-note{flex-direction:column;align-items:flex-start}.hero-note small{text-align:left}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Розділи"><a href="#collection">Колекція</a><a href="#pick">Підбір</a><a href="#history">Історія</a><a href="#faq">Питання</a></nav>
+<header class="hero">
+  <h1><span>Le Male</span><span>Elixir</span></h1>
+  <div class="stage" id="stage" role="img" aria-label="3D-флакон Le Male Elixir у формі золотого чоловічого торса з темним склом. Потягніть, щоб повернути."></div>
+  <div class="hero-note">
+    <p>Jean Paul Gaultier. Парфуми у флаконах-торсах, з тільняшкою й жерстяною банкою.</p>
+    <small>Флакон дивиться за курсором. Потягніть, щоб прокрутити</small>
+  </div>
+</header>
+<div class="coil" aria-hidden="true"></div>
+<p class="statement">Одні парфуми пахнуть квітами. Парфуми Gaultier пахнуть <em>моряком, корсетом і золотом</em>, а пляшка в них схожа на скульптуру.</p>
+<main>
+  <section id="collection" style="margin-top:0">
+    <h2>Колекція</h2>
+    <p class="intro">Сім ароматів дому Gaultier, від першого Classique до золотого Elixir. Фільтр допоможе швидко знайти чоловічі чи жіночі.</p>
+    <div class="tabs" role="group" aria-label="Фільтр">
+      <button type="button" data-f="all" aria-pressed="true">Усі</button>
+      <button type="button" data-f="m" aria-pressed="false">Чоловічі</button>
+      <button type="button" data-f="f" aria-pressed="false">Жіночі</button>
+    </div>
+    <ul class="list">
+      <li class="row now" data-g="m"><div class="slot" data-b="elixir"></div><h3>Le Male Elixir</h3><div class="meta">2023 · чоловічий · парфум</div><p>Золотий торс із рельєфними кільцями й темним склом, перев’язаним золотими обручами. Той самий, що обертається нагорі. У 2025 році вийшло продовження Elixir Absolu.<span class="notes">Деревно-ароматичний, бурштиновий</span></p></li>
+      <li class="row" data-g="f"><div class="slot" data-b="classique"></div><h3>Classique</h3><div class="meta">1993 · жіночий</div><p>Перший парфум дому. Пляшка у формі жіночого торса в корсеті, у жерстяній банці.<span class="notes">Флердоранж, ваніль, іланг-іланг</span></p></li>
+      <li class="row" data-g="m"><div class="slot" data-b="lemale"></div><h3>Le Male</h3><div class="meta">1995 · чоловічий</div><p>Чоловічий торс у тільняшці. Створив парфумер Франсіс Куркджян. Класика, що не виходить з моди.<span class="notes">Лаванда, м’ята, ваніль, тонка</span></p></li>
+      <li class="row" data-g="m"><div class="slot" data-b="ultra"></div><h3>Ultra Male</h3><div class="meta">2015 · чоловічий</div><p>Темніша й солодша версія Le Male, зі смаком груші.<span class="notes">Груша, лаванда, ваніль</span></p></li>
+      <li class="row" data-g="f"><div class="slot" data-b="scandal"></div><h3>Scandal</h3><div class="meta">2017 · жіночий</div><p>Пляшка у вигляді жіночих ніг. Гучний, медовий, трохи зухвалий.<span class="notes">Мед, гарденія, пачулі</span></p></li>
+      <li class="row" data-g="m"><div class="slot" data-b="beau"></div><h3>Le Beau</h3><div class="meta">2019 · чоловічий</div><p>Літній торс без тільняшки. Кокос і тепле сонце.<span class="notes">Бергамот, кокос, тонка</span></p></li>
+      <li class="row" data-g="f"><div class="slot" data-b="belle"></div><h3>La Belle</h3><div class="meta">2021 · жіночий</div><p>Торс у квітковому вбранні. Ніжна й солодка ваніль.<span class="notes">Груша, ваніль, мигдаль</span></p></li>
+    </ul>
+  </section>
+
+  <section id="pick">
+    <h2>Як вибрати</h2>
+    <p class="intro">Орієнтири за нотами, не правила. Найкраще все одно перевірити на шкірі.</p>
+    <div class="picks">
+      <div class="pick"><h3>Для вечора й виходу</h3><p><strong>Le Male Elixir, Scandal, Ultra Male.</strong> Теплі, солодкі й помітні аромати з бурштином, медом чи ванільною глибиною.</p></div>
+      <div class="pick"><h3>На кожен день</h3><p>Le Male, La Belle, Classique. Впізнавані, зрозумілі, без різкості.</p></div>
+      <div class="pick"><h3>Для літа</h3><p>Le Beau з кокосом і бергамотом, Le Male з м’ятою.</p></div>
+    </div>
+  </section>
+
+  <section id="history">
+    <h2>Історія дому</h2>
+    <p class="intro">Від паризького кравця-самоука до парфумів у золотих банках.</p>
+    <ol class="timeline">
+      <li><b>1952</b><span>Жан-Поль Готьє народився в Арквеї під Парижем.</span></li>
+      <li><b>1976</b><span>Перша власна колекція одягу.</span></li>
+      <li><b>1990</b><span>Костюми для туру Мадонни Blond Ambition, зокрема знаменитий корсет.</span></li>
+      <li><b>1993</b><span>Перший парфум Classique у жерстяній банці.</span></li>
+      <li><b>1995</b><span>Виходить Le Male, чоловічий торс у тільняшці.</span></li>
+      <li><b>2011</b><span>Іспанська компанія Puig купує більшість у модному домі.</span></li>
+      <li><b>2020</b><span>Готьє прощається з одягом pret-a-porter, але парфуми продовжують виходити.</span></li>
+    </ol>
+    <div class="trio-grid">
+      <div><h3>Торс замість флакона</h3><p>Тіло завжди було головною темою Gaultier у моді, тому й флакон схожий на скульптуру тіла.</p></div>
+      <div><h3>Жерстяна банка</h3><p>Класична упаковка у вигляді консервної банки стала візитівкою бренду.</p></div>
+      <div><h3>Тільняшка</h3><p>Смужки моряка залишилися символом дому. Моряк узагалі давня муза Готьє.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Питання й відповіді</h2>
+    <details><summary>Чим відрізняються парфум, парфумована та туалетна вода?</summary><p>Концентрацією ароматичної основи. Парфум містить її найбільше (приблизно 20–30%), парфумована вода менше (15–20%), туалетна вода ще менше (5–15%). Чим вона вища, тим стійкіший і насичений аромат.</p></details>
+    <details><summary>Як відрізнити оригінал від підробки?</summary><p>Купуйте в офіційних магазинах. Партійний код на коробці має збігатися з кодом на флаконі, а розпилювач і золоті деталі мають бути акуратними. Дуже низька ціна теж тривожний сигнал.</p></details>
+    <details><summary>Як зберігати флакон?</summary><p>У прохолодному темному місці, подалі від сонця й вологої ванної. Жерстяна банка в цьому допомагає, тому не викидайте її.</p></details>
+    <details><summary>Що таке Elixir Absolu?</summary><p>Новіша, більш насичена версія Le Male Elixir, що вийшла у 2025 році. Флакон теж золотий, а ноти ще теплішіші.</p></details>
+  </section>
+</main>
+<div class="coil" aria-hidden="true"></div>
+<footer>Неофіційний сайт про парфуми Jean Paul Gaultier. Роки й ноти зібрані з відкритих джерел, звіряйте їх із офіційним сайтом. Усі торгові марки належать їхнім власникам.</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var el=document.getElementById('stage');
+  if(!window.THREE){el.style.display='none';return;}
+  var scene=new THREE.Scene();
+  var cam=new THREE.PerspectiveCamera(30,1,0.1,50);cam.position.set(0,0.2,9.5);
+  var ren=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  ren.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  el.appendChild(ren.domElement);
+  ren.toneMapping=THREE.ACESFilmicToneMapping;ren.toneMappingExposure=1.1;ren.outputEncoding=THREE.sRGBEncoding;
+  scene.add(new THREE.AmbientLight(0xffffff,0.7));
+  var key=new THREE.DirectionalLight(0xffffff,0.9);key.position.set(4,5,6);scene.add(key);
+  var rim=new THREE.PointLight(0xffb3a8,0.8,30);rim.position.set(-5,1,-3);scene.add(rim);
+
+  var ec=document.createElement('canvas');ec.width=1024;ec.height=512;
+  var e=ec.getContext('2d');
+  var eg=e.createLinearGradient(0,0,0,512);eg.addColorStop(0,'#3a2a18');eg.addColorStop(0.5,'#14100a');eg.addColorStop(1,'#050403');
+  e.fillStyle=eg;e.fillRect(0,0,1024,512);
+  e.fillStyle='#fff3dc';[[80,60,70,300],[330,40,40,330],[600,70,120,200],[860,50,50,320]].forEach(function(r){e.fillRect(r[0],r[1],r[2],r[3]);});
+  e.fillStyle='#ffb25a';e.fillRect(0,250,1024,10);
+  var envTex=new THREE.CanvasTexture(ec);envTex.mapping=THREE.EquirectangularReflectionMapping;envTex.encoding=THREE.sRGBEncoding;
+  scene.environment=new THREE.PMREMGenerator(ren).fromEquirectangular(envTex).texture;
+
+  var prof=[[0.62,-1.73],[0.65,-1.41],[0.68,-1.02],[0.63,-0.63],[0.575,-0.29],[0.61,0.05],[0.68,0.39],[0.74,0.73],[0.77,0.95],[0.58,1.07],[0.34,1.2],[0.22,1.29]]
+    .map(function(p){return new THREE.Vector2(p[0],p[1]);});
+  var pts=[new THREE.Vector2(0,-1.73)].concat(new THREE.SplineCurve(prof).getPoints(120));
+  function rAt(y){var best=pts[0],d=9;for(var i=0;i<pts.length;i++){var q=Math.abs(pts[i].y-y);if(q<d){d=q;best=pts[i];}}return best.x;}
+  var geo=new THREE.LatheGeometry(pts,96);
+  var pos=geo.attributes.position,uv=geo.attributes.uv;
+  for(var i=0;i<pos.count;i++){uv.setY(i,(pos.getY(i)+1.9)/3.9);}
+  uv.needsUpdate=true;
+
+  var c=document.createElement('canvas');c.width=64;c.height=800;
+  var g=c.getContext('2d');g.fillStyle='#1c0608';g.fillRect(0,0,64,800);
+  g.fillStyle='#7a4c12';g.fillRect(0,0,64,222);g.fillRect(0,470,64,330);
+  for(var k=0;k<5;k++){g.fillStyle='#5a0f13';g.fillRect(0,250+52*k,64,32);g.fillStyle='#3a080b';g.fillRect(0,262+52*k,64,8);}
+  var tex=new THREE.CanvasTexture(c);tex.encoding=THREE.sRGBEncoding;
+
+  var body=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({map:tex,roughness:0.22,metalness:0.6,envMapIntensity:1.2,side:THREE.DoubleSide}));
+  body.scale.z=0.7;
+  var gold=new THREE.MeshStandardMaterial({color:0xf0c15a,metalness:1,roughness:0.18,envMapIntensity:1.4});
+  var bottle=new THREE.Group();bottle.add(body);
+  function ring(y,r,tube){var tg=new THREE.TorusGeometry(r,tube,8,96);tg.rotateX(Math.PI/2);var t=new THREE.Mesh(tg,gold);t.position.y=y;t.scale.z=0.7;bottle.add(t);}
+  var Y=function(py){return 2.0-py/800*3.9;};
+  for(var py=474;py<770;py+=8){ring(Y(py),rAt(Y(py))+0.004,0.022);}
+  for(var py2=152;py2<216;py2+=8){ring(Y(py2),rAt(Y(py2))+0.004,0.022);}
+  for(var b=0;b<5;b++){var cy=Y(240+52*b);[-0.05,0,0.05].forEach(function(o){ring(cy+o,rAt(cy+o)+0.006,0.026);});}
+  var neck=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.28,0.55,48),gold);neck.position.y=1.45;bottle.add(neck);
+  var cap=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.17,0.35,40),gold);cap.position.y=1.87;bottle.add(cap);
+  var lip=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,0.07,40),gold);lip.position.y=1.7;bottle.add(lip);
+  var nz=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.05,16),new THREE.MeshStandardMaterial({color:0x222222,metalness:0.6,roughness:0.4}));nz.position.set(0,2.07,0);bottle.add(nz);
+  var hoop=new THREE.Mesh(new THREE.TorusGeometry(0.31,0.045,20,96),gold);hoop.position.set(0,1.49,0.05);bottle.add(hoop);
+  bottle.rotation.x=0.05;bottle.position.y=-0.15;
+  scene.add(bottle);
+
+  function size(){var w=el.clientWidth,h=el.clientHeight;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();}
+  size();window.addEventListener('resize',size);
+
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mx=0,my=0,cx=0,cy=0,spin=0,drag=false,lastX=0,lastMove=-9999,TAU=Math.PI*2;
+  window.addEventListener('pointermove',function(e){
+    mx=(e.clientX/window.innerWidth-0.5)*2;my=(e.clientY/window.innerHeight-0.5)*2;lastMove=performance.now();
+    if(drag){spin+=(e.clientX-lastX)*0.01;lastX=e.clientX;}
+  });
+  el.addEventListener('pointerdown',function(e){drag=true;lastX=e.clientX;el.setPointerCapture(e.pointerId);});
+  ['pointerup','pointercancel'].forEach(function(n){el.addEventListener(n,function(){drag=false;});});
+  window.addEventListener('scroll',function(){if(!still)spin+=0.004*(window.scrollY-(window._ly||0));window._ly=window.scrollY;},{passive:true});
+  (function loop(){
+    requestAnimationFrame(loop);
+    var idle=performance.now()-lastMove>3000;
+    if(!drag){
+      if(idle){if(!still)spin+=0.006;mx*=0.97;my*=0.97;}
+      else{spin+=(Math.round(spin/TAU)*TAU-spin)*0.05;}
+    }
+    var k=still?1:0.08;
+    cx+=(mx-cx)*k;cy+=(my-cy)*k;
+    bottle.rotation.y=spin+cx*0.9;
+    bottle.rotation.x=0.05+cy*0.35;
+    bottle.position.x=cx*0.55;
+    bottle.position.y=-0.15-cy*0.3;
+    ren.render(scene,cam);
+  })();
+})();
+</script>
+<script>
+(function(){
+  var btns=document.querySelectorAll('.tabs button'),rows=document.querySelectorAll('.row');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    rows.forEach(function(r){r.hidden=b.dataset.f!=='all'&&r.dataset.g!==b.dataset.f;});
+  });});
+})();
+</script>
+<script>
+(function(){
+  if(!window.THREE)return;
+  var V=THREE.Vector2,cv=document.createElement('canvas');cv.id='multi';document.body.appendChild(cv);
+  var R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  R.autoClear=false;R.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+  R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.1;R.outputEncoding=THREE.sRGBEncoding;
+  function fit(){R.setSize(window.innerWidth,window.innerHeight,false);}fit();window.addEventListener('resize',fit);
+
+  var ec=document.createElement('canvas');ec.width=1024;ec.height=512;var e=ec.getContext('2d');
+  var eg=e.createLinearGradient(0,0,0,512);eg.addColorStop(0,'#3a2a18');eg.addColorStop(0.5,'#14100a');eg.addColorStop(1,'#050403');
+  e.fillStyle=eg;e.fillRect(0,0,1024,512);e.fillStyle='#fff3dc';
+  [[80,60,70,300],[330,40,40,330],[600,70,120,200],[860,50,50,320]].forEach(function(r){e.fillRect(r[0],r[1],r[2],r[3]);});
+  e.fillStyle='#ffb25a';e.fillRect(0,250,1024,10);
+  var envTex=new THREE.CanvasTexture(ec);envTex.mapping=THREE.EquirectangularReflectionMapping;envTex.encoding=THREE.sRGBEncoding;
+  var ENV=new THREE.PMREMGenerator(R).fromEquirectangular(envTex).texture;
+
+  function M(c,m,r,i,x){var o={color:c,metalness:m,roughness:r,envMapIntensity:i||1.3};if(x)for(var k in x)o[k]=x[k];return new THREE.MeshStandardMaterial(o);}
+  function tex(draw){var c=document.createElement('canvas');c.width=64;c.height=800;var g=c.getContext('2d');
+    draw(g,function(y){return (2.0-y)/3.9*800;});var t=new THREE.CanvasTexture(c);t.encoding=THREE.sRGBEncoding;return t;}
+  function bars(g,P,y0,y1,per,th,col){g.fillStyle=col;for(var y=y0;y<y1;y+=per){g.fillRect(0,P(y+th),64,P(y)-P(y+th));}}
+  function body(G,prof,sz,mat){
+    var pts=[new V(0,prof[0][1])].concat(new THREE.SplineCurve(prof.map(function(p){return new V(p[0],p[1]);})).getPoints(100));
+    var geo=new THREE.LatheGeometry(pts,72),pos=geo.attributes.position,uv=geo.attributes.uv;
+    for(var i=0;i<pos.count;i++){uv.setY(i,(pos.getY(i)+1.9)/3.9);}
+    var m=new THREE.Mesh(geo,mat);m.scale.z=sz;G.add(m);G.userData.sz=sz;
+    return function(y){var b=pts[0],d=9;for(var i=0;i<pts.length;i++){var q=Math.abs(pts[i].y-y);if(q<d){d=q;b=pts[i];}}return b.x;};
+  }
+  function ring(G,y,r,t,mat){var tg=new THREE.TorusGeometry(r,t,8,72);tg.rotateX(Math.PI/2);var m=new THREE.Mesh(tg,mat);m.position.y=y;m.scale.z=G.userData.sz;G.add(m);}
+  function ball(G,x,y,z,r,sz,mat){var m=new THREE.Mesh(new THREE.SphereGeometry(r,28,20),mat);m.position.set(x,y,z);m.scale.z=sz;G.add(m);}
+  function muscles(G,mat){[-1,1].forEach(function(s){ball(G,s*0.36,0.72,0.4,0.4,0.6,mat);
+    [[0.2,0.44],[-0.2,0.42],[-0.6,0.38]].forEach(function(a){ball(G,s*0.2,a[0],a[1],0.2,0.5,mat);});});}
+  function top(G,neckM,capM,y,hoop){
+    function cyl(a,b,h,py,m){var c=new THREE.Mesh(new THREE.CylinderGeometry(a,b,h,40),m);c.position.y=py;G.add(c);}
+    cyl(0.22,0.28,0.55,y,neckM);cyl(0.2,0.2,0.07,y+0.25,neckM);cyl(0.15,0.17,0.35,y+0.42,capM);
+    var nz=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.05,16),M(0x222222,0.6,0.4));nz.position.y=y+0.62;G.add(nz);
+    if(hoop){var h=new THREE.Mesh(new THREE.TorusGeometry(0.31,0.045,16,72),neckM);h.position.set(0,y+0.04,0.05);G.add(h);}
+  }
+  function base(G,col){var b=new THREE.Mesh(new THREE.CylinderGeometry(0.8,0.85,0.06,48),M(col||0x15100c,0.8,0.25));b.position.y=-1.78;G.add(b);}
+
+  var maleP=[[0.62,-1.73],[0.65,-1.41],[0.68,-1.02],[0.63,-0.63],[0.575,-0.29],[0.61,0.05],[0.68,0.39],[0.74,0.73],[0.77,0.95],[0.58,1.07],[0.34,1.2],[0.22,1.29]];
+  var male2=[[0.6,-1.73],[0.62,-1.3],[0.6,-0.9],[0.55,-0.4],[0.62,0.1],[0.72,0.55],[0.78,0.9],[0.6,1.05],[0.32,1.2],[0.22,1.29]];
+  var femP=[[0.6,-1.73],[0.78,-1.25],[0.72,-0.75],[0.46,-0.15],[0.6,0.3],[0.66,0.7],[0.62,1.0],[0.4,1.15],[0.22,1.25],[0.2,1.33]];
+  var gold=M(0xf0c15a,1,0.18,1.4),chrome=M(0xffffff,1,0.08,1.5);
+
+  var B={
+    elixir:function(G){
+      var t=tex(function(g){g.fillStyle='#1c0608';g.fillRect(0,0,64,800);g.fillStyle='#7a4c12';g.fillRect(0,0,64,222);g.fillRect(0,470,64,330);
+        for(var k=0;k<5;k++){g.fillStyle='#5a0f13';g.fillRect(0,250+52*k,64,32);g.fillStyle='#3a080b';g.fillRect(0,262+52*k,64,8);}});
+      var r=body(G,maleP,0.7,M(0xffffff,0.6,0.22,1.2,{map:t,side:THREE.DoubleSide}));
+      var Y=function(p){return 2.0-p/800*3.9;};
+      for(var p=474;p<770;p+=8)ring(G,Y(p),r(Y(p))+0.004,0.022,gold);
+      for(var q=152;q<216;q+=8)ring(G,Y(q),r(Y(q))+0.004,0.022,gold);
+      for(var b=0;b<5;b++){var cy=Y(240+52*b);[-0.05,0,0.05].forEach(function(o){ring(G,cy+o,r(cy+o)+0.006,0.026,gold);});}
+      top(G,gold,gold,1.45,true);base(G);},
+    classique:function(G){
+      var V3=THREE.Vector3,PI=Math.PI;
+      var tc2=document.createElement('canvas');tc2.width=1024;tc2.height=800;var q=tc2.getContext('2d');
+      var gr=q.createLinearGradient(0,0,0,800);
+      gr.addColorStop(0,'#fbcdb2');gr.addColorStop(0.2,'#f8b08c');gr.addColorStop(0.42,'#f59a70');gr.addColorStop(0.6,'#f39066');gr.addColorStop(0.82,'#f7b190');gr.addColorStop(1,'#fcd3ba');
+      q.fillStyle=gr;q.fillRect(0,0,1024,800);
+      var sg=q.createLinearGradient(0,0,1024,0);
+      sg.addColorStop(0,'rgba(205,95,55,0.22)');sg.addColorStop(0.25,'rgba(205,95,55,0.38)');sg.addColorStop(0.5,'rgba(205,95,55,0)');sg.addColorStop(0.75,'rgba(205,95,55,0.38)');sg.addColorStop(1,'rgba(205,95,55,0.22)');
+      q.fillStyle=sg;q.fillRect(0,0,1024,800);
+      function blob(cx,cy,rx,ry,col){q.save();q.translate(cx,cy);q.scale(rx,ry);var rg=q.createRadialGradient(0,0,0,0,0,1);rg.addColorStop(0,col);rg.addColorStop(0.7,col);rg.addColorStop(1,'rgba(255,225,205,0)');q.fillStyle=rg;q.beginPath();q.arc(0,0,1,0,6.283);q.fill();q.restore();}
+      function lobe(cx,cy,rx,ry,fill,edge){blob(cx,cy,rx,ry,fill);q.save();q.strokeStyle=edge;q.lineWidth=3;q.beginPath();q.ellipse(cx,cy,rx*0.88,ry*0.88,0,0,6.283);q.stroke();q.restore();}
+      lobe(512-54,640,64,118,'rgba(255,232,214,0.85)','rgba(222,112,70,0.32)');lobe(512+54,640,64,118,'rgba(255,232,214,0.85)','rgba(222,112,70,0.32)');
+      lobe(512-52,300,60,56,'rgba(255,214,188,0.8)','rgba(225,115,70,0.45)');lobe(512+52,300,60,56,'rgba(255,214,188,0.8)','rgba(225,115,70,0.45)');
+      blob(512-130,430,16,250,'rgba(255,255,255,0.3)');blob(512+120,430,10,230,'rgba(255,255,255,0.14)');
+      blob(512,170,160,60,'rgba(255,235,220,0.35)');
+      var t=new THREE.CanvasTexture(tc2);t.encoding=THREE.sRGBEncoding;
+      var prof=[[0.68,-1.73],[0.70,-1.57],[0.74,-1.25],[0.66,-0.93],[0.54,-0.61],[0.48,-0.21],[0.56,0.11],[0.66,0.43],[0.72,0.71],[0.76,0.99],[0.70,1.11],[0.36,1.22],[0.26,1.27]];
+      var gl=new THREE.MeshPhysicalMaterial({map:t,transparent:true,opacity:0.9,depthWrite:false,emissive:0x6a3018,emissiveMap:t,emissiveIntensity:0.38,roughness:0.42,metalness:0,clearcoat:0.5,clearcoatRoughness:0.25,sheen:new THREE.Color(0xffd0b0),envMapIntensity:1.8,side:THREE.DoubleSide});
+      var gl2=new THREE.MeshPhysicalMaterial({color:0xffd6bc,emissive:0x6a3a22,emissiveIntensity:0.35,roughness:0.35,clearcoat:1,clearcoatRoughness:0.08,envMapIntensity:1.5});
+      var TAU2=Math.PI*2,NN=2.4;
+      function tab(a){var c=new THREE.SplineCurve(a.map(function(p){return new V(p[0],p[1]);})).getPoints(400);return function(y){for(var i=1;i<c.length;i++){if(c[i].x>=y){var u=(y-c[i-1].x)/((c[i].x-c[i-1].x)||1);return c[i-1].y+(c[i].y-c[i-1].y)*u;}}return c[c.length-1].y;};}
+      var Wf=tab([[-1.73,0.68],[-1.57,0.70],[-1.25,0.74],[-0.93,0.66],[-0.61,0.54],[-0.21,0.48],[0.11,0.56],[0.43,0.66],[0.71,0.72],[0.99,0.76],[1.11,0.70],[1.22,0.36],[1.27,0.26]]);
+      var Df=tab([[-1.73,0.46],[-1.57,0.48],[-1.25,0.52],[-0.93,0.47],[-0.61,0.38],[-0.21,0.32],[0.11,0.36],[0.43,0.40],[0.71,0.40],[0.99,0.38],[1.11,0.34],[1.22,0.26],[1.27,0.22]]);
+      function bz(x,y){var v=0;[-1,1].forEach(function(s){v+=0.10*Math.exp(-(Math.pow((x-s*0.27)/0.2,2)+Math.pow((y-0.5)/0.22,2)));});return v;}
+      function gz(x,y){var v=0;[-1,1].forEach(function(s){v+=0.09*Math.exp(-(Math.pow((x-s*0.26)/0.22,2)+Math.pow((y+1.05)/0.32,2)));});return v;}
+      function torso(k,yt,feat){
+        var rows=140,cols=96,pos=[],uv=[],ix=[],y0=-1.73;
+        for(var i=0;i<=rows;i++){var y=y0+(yt-y0)*i/rows,w=Wf(y)*k,d=Df(y)*k;
+          for(var j=0;j<=cols;j++){var a=j/cols*TAU2+PI,sa=Math.sin(a),ca=Math.cos(a);
+            var x=(sa<0?-1:1)*Math.pow(Math.abs(sa),2/NN)*w,z=(ca<0?-1:1)*Math.pow(Math.abs(ca),2/NN)*d;
+            if(feat){if(ca>0)z+=bz(x/k,y)*k*Math.pow(ca,0.4);else z-=gz(x/k,y)*k*Math.pow(-ca,0.4);}
+            pos.push(x,y,z);uv.push(j/cols,(y+1.9)/3.9);}}
+        for(var i2=0;i2<rows;i2++)for(var j2=0;j2<cols;j2++){var A=i2*(cols+1)+j2,B2=A+cols+1;ix.push(A,B2,A+1,B2,B2+1,A+1);}
+        var g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;}
+      var lq=document.createElement('canvas');lq.width=4;lq.height=800;var lg=lq.getContext('2d'),lgr=lg.createLinearGradient(0,0,0,800);
+      lgr.addColorStop(0,'#f9b894');lgr.addColorStop(0.45,'#ee8050');lgr.addColorStop(1,'#f4a073');lg.fillStyle=lgr;lg.fillRect(0,0,4,800);
+      var lt2=new THREE.CanvasTexture(lq);lt2.encoding=THREE.sRGBEncoding;
+      var liq=M(0xffffff,0,0.15,1.2,{map:lt2,emissive:0xc4562a,emissiveMap:lt2,emissiveIntensity:0.45,side:THREE.DoubleSide});
+      G.add(new THREE.Mesh(torso(0.93,1.06,false),liq));
+      var ld=new THREE.Mesh(new THREE.CircleGeometry(1,56),liq);ld.rotation.x=-PI/2;ld.position.y=1.06;ld.scale.set(Wf(1.06)*0.93,Df(1.06)*0.93,1);G.add(ld);
+      G.add(new THREE.Mesh(torso(1,1.27,true),gl));
+      var dt=new THREE.Mesh(new THREE.CylinderGeometry(0.014,0.014,3.0,12),M(0xeeeeee,0,0.2,1.2,{transparent:true,opacity:0.6}));dt.position.set(0.05,-0.1,0.05);G.add(dt);
+      function band(y,k,tb,m){var pts=[];for(var j=0;j<64;j++){var a=j/64*TAU2,sa=Math.sin(a),ca=Math.cos(a);
+        pts.push(new V3((sa<0?-1:1)*Math.pow(Math.abs(sa),2/NN)*Wf(y)*k,y,(ca<0?-1:1)*Math.pow(Math.abs(ca),2/NN)*Df(y)*k));}
+        G.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true),96,tb,8,true),m));}
+      var rim=M(0xffe6d4,0.1,0.2,1.4);band(1.1,1.01,0.02,rim);band(-1.73,1.01,0.025,rim);band(-0.21,1.01,0.012,rim);
+      function fz(x,y){var r=Math.min(Math.abs(x)/Wf(y),0.999),sa=Math.pow(r,NN/2),c2=Math.sqrt(Math.max(0,1-sa*sa));return Df(y)*Math.pow(1-Math.pow(r,NN),1/NN)+bz(x,y)*Math.pow(c2,0.4)+0.012;}
+      var nl=[[-0.66,0.8],[-0.5,0.86],[-0.34,0.88],[-0.18,0.78],[-0.07,0.69],[0,0.66],[0.07,0.69],[0.18,0.78],[0.34,0.88],[0.5,0.86],[0.66,0.8]].map(function(a){return new V3(a[0],a[1],fz(a[0],a[1]));});
+      G.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(nl),60,0.015,8,false),M(0xffe2cf,0.1,0.2,1.2)));
+      var bs=new THREE.Mesh(new THREE.CylinderGeometry(0.68,0.7,0.1,56),gl2);bs.position.y=-1.78;bs.scale.z=0.68;G.add(bs);
+      var S=M(0xd9dde3,1,0.3,1.4);
+      function rr(y,rad,tb,m){var tg=new THREE.TorusGeometry(rad,tb,10,56);tg.rotateX(PI/2);var o=new THREE.Mesh(tg,m);o.position.y=y;G.add(o);}
+      var nk=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.28,0.2,40),gl);nk.position.y=1.3;G.add(nk);
+      var co=new THREE.Mesh(new THREE.CylinderGeometry(0.27,0.27,0.26,48),S);co.position.y=1.48;G.add(co);
+      for(var i=0;i<10;i++)rr(1.37+i*0.025,0.275,0.01,S);
+      var pl=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,0.1,40),M(0xdddddd,0,0.1,1.2,{transparent:true,opacity:0.5}));pl.position.y=1.63;G.add(pl);
+      rr(1.69,0.195,0.012,M(0x15171b,0.5,0.3));
+      var cp=new THREE.Mesh(new THREE.CylinderGeometry(0.19,0.19,0.46,56),S);cp.position.y=1.92;G.add(cp);
+      var tp=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.17,0.04,40),M(0x111317,0.8,0.15,1.5));tp.position.y=2.16;G.add(tp);
+      var nz=new THREE.Mesh(new THREE.CylinderGeometry(0.035,0.035,0.05,16),M(0x222222,0.6,0.4));nz.position.y=2.2;G.add(nz);rr(2.12,0.19,0.012,chrome);rr(1.72,0.19,0.012,chrome);
+
+      var X=new THREE.Group(),S2=M(0xc8ccd2,1,0.25,1.5),RB=M(0xeef0f3,1,0.12,1.6),RM=M(0xd8d49a,1,0.25,1.3);
+      var tin=new THREE.Mesh(new THREE.CylinderGeometry(0.96,0.96,4.02,72),S2);tin.position.y=0.26;X.add(tin);
+      function xr(y,rad,tb,m){var tg=new THREE.TorusGeometry(rad,tb,10,72);tg.rotateX(PI/2);var o=new THREE.Mesh(tg,m);o.position.y=y;X.add(o);}
+      xr(2.27,0.965,0.05,RM);xr(-1.75,0.965,0.05,RM);
+      [1.99,1.94,1.89,1.84,1.79].forEach(function(y){xr(y,0.975,0.026,RB);});
+      [-0.854,-0.95,-1.05,-1.21,-1.29,-1.37,-1.45,-1.53].forEach(function(y){xr(y,0.975,0.026,RB);});
+      var tc=document.createElement('canvas');tc.width=512;tc.height=266;var c=tc.getContext('2d');c.textAlign='center';
+      function tx(str,y,f){c.font=f;[[-1.5,'#f4f6f8'],[1.5,'#5d626a'],[0,'#b4b9c0']].forEach(function(o){c.fillStyle=o[1];c.fillText(str,256+o[0],y+o[0]);});}
+      tx('Jean Paul',95,'italic bold 70px Georgia,serif');tx('GAULTIER',178,'bold 90px Georgia,serif');tx('\u201cCLASSIQUE\u201d',240,'bold 46px Georgia,serif');
+      var tt=new THREE.CanvasTexture(tc);tt.encoding=THREE.sRGBEncoding;
+      var tm=new THREE.Mesh(new THREE.CylinderGeometry(0.968,0.968,0.9,64,1,true,-0.95,1.9),new THREE.MeshStandardMaterial({map:tt,transparent:true,metalness:0.9,roughness:0.3,envMapIntensity:1.4}));
+      tm.position.y=0.6;X.add(tm);
+      X.position.x=-1.0;G.position.x=0.95;G.userData.extra=X;},
+    lemale:function(G){
+      var t=tex(function(g,P){var gr=g.createLinearGradient(0,0,0,800);gr.addColorStop(0,'#3b7be0');gr.addColorStop(1,'#1f54ae');g.fillStyle=gr;g.fillRect(0,0,64,800);bars(g,P,-1.15,1.0,0.27,0.11,'#f4f7ff');});
+      body(G,male2,0.68,M(0xffffff,0.25,0.1,1.5,{map:t,side:THREE.DoubleSide}));
+      ring(G,1.12,0.5,0.05,chrome);top(G,chrome,chrome,1.45,false);base(G);},
+    ultra:function(G){
+      var t=tex(function(g,P){g.fillStyle='#0a0f1e';g.fillRect(0,0,64,800);bars(g,P,-1.15,1.0,0.27,0.045,'#2f7bff');});
+      body(G,maleP,0.7,M(0xffffff,0.7,0.2,1.4,{map:t,side:THREE.DoubleSide}));
+      muscles(G,M(0x0d1426,0.8,0.25,1.4));
+      ring(G,1.1,0.5,0.05,M(0x2f7bff,0.6,0.2,1.2,{emissive:0x1646a8}));top(G,chrome,M(0x10131c,0.8,0.2),1.45,false);base(G);},
+    scandal:function(G){
+      var H=M(0xe0a030,0.65,0.12,1.7),K=M(0x14100e,0.5,0.2,1.3);G.userData.sz=0.75;
+      [-1,1].forEach(function(s){var l=new THREE.Mesh(new THREE.CylinderGeometry(0.27,0.13,1.7,36),H);l.position.set(s*0.27,-0.9,0);l.rotation.z=-s*0.04;G.add(l);
+        ball(G,s*0.3,-1.74,0.02,0.15,1,K);});
+      var pv=new THREE.Mesh(new THREE.SphereGeometry(0.62,40,28),H);pv.scale.set(1.05,0.9,0.75);pv.position.y=-0.05;G.add(pv);
+      var wst=new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.52,0.6,40),H);wst.scale.z=0.75;wst.position.y=0.55;G.add(wst);
+      ring(G,0.3,0.5,0.03,K);ring(G,0.62,0.42,0.03,K);ring(G,0.88,0.4,0.03,gold);
+      var cp=new THREE.Mesh(new THREE.CylinderGeometry(0.28,0.4,0.55,40),K);cp.position.y=1.2;G.add(cp);
+      var cp2=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.16,0.4,32),gold);cp2.position.y=1.65;G.add(cp2);base(G);},
+    beau:function(G){
+      var t=tex(function(g){var gr=g.createLinearGradient(0,0,0,800);gr.addColorStop(0,'#d4e84f');gr.addColorStop(0.5,'#58b947');gr.addColorStop(1,'#145c33');g.fillStyle=gr;g.fillRect(0,0,64,800);});
+      var r=body(G,male2,0.7,M(0xffffff,0.35,0.15,1.4,{map:t,side:THREE.DoubleSide}));
+      muscles(G,M(0x6cc24a,0.35,0.18,1.4));ring(G,1.1,r(1.1)+0.01,0.045,gold);top(G,gold,gold,1.45,false);base(G,0x1d3a24);},
+    belle:function(G){
+      var t=tex(function(g,P){var gr=g.createLinearGradient(0,0,0,800);gr.addColorStop(0,'#2bb39a');gr.addColorStop(1,'#0f5c52');g.fillStyle=gr;g.fillRect(0,0,64,800);
+        g.fillStyle='#e8c25a';g.fillRect(0,P(0.2),64,3);g.fillRect(0,P(-0.35),64,3);});
+      var r=body(G,femP,0.66,M(0xffffff,0.3,0.15,1.4,{map:t,side:THREE.DoubleSide}));
+      var tl=M(0x1f8f7a,0.3,0.15,1.4);ball(G,-0.3,0.52,0.38,0.34,0.8,tl);ball(G,0.3,0.52,0.38,0.34,0.8,tl);
+      [0.15,0.05,-0.05].forEach(function(y){ring(G,y,r(y)+0.01,0.02,gold);});ring(G,0.98,r(0.98)+0.01,0.03,gold);
+      var pw=M(0xf6efe0,0.2,0.3,1.2);ball(G,-0.32,0.82,0.42,0.09,0.8,gold);
+      for(var a=0;a<6;a++){var an=a/6*6.283;ball(G,-0.32+Math.cos(an)*0.17,0.82+Math.sin(an)*0.17,0.42,0.09,0.7,pw);}
+      top(G,gold,gold,1.42,false);base(G,0x0f3a34);}
+  };
+
+  var slots=[],mouseX=0,mouseY=0,lastMove=-9999;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches,TAU=Math.PI*2;
+  document.querySelectorAll('.slot').forEach(function(el){
+    var f=B[el.dataset.b];if(!f)return;
+    var sc=new THREE.Scene();sc.environment=ENV;
+    sc.add(new THREE.AmbientLight(0xffffff,0.7));var k=new THREE.DirectionalLight(0xffffff,0.9);k.position.set(4,5,6);sc.add(k);
+    var rm=new THREE.PointLight(0xffb3a8,0.8,30);rm.position.set(-5,1,-3);sc.add(rm);
+    var G=new THREE.Group();f(G);G.position.y=-0.15;sc.add(G);var X=G.userData.extra||null;if(X){X.position.y=-0.15;sc.add(X);}
+    slots.push({el:el,sc:sc,cam:new THREE.PerspectiveCamera(30,0.6,0.1,50),G:G,X:X,cx:0,cy:0,spin:Math.random()*TAU});
+    slots[slots.length-1].cam.position.set(0,0.2,9.5);
+  });
+  window.addEventListener('pointermove',function(e){mouseX=e.clientX;mouseY=e.clientY;lastMove=performance.now();});
+  function cl(v){return Math.max(-1,Math.min(1,v));}
+  (function loop(){
+    requestAnimationFrame(loop);
+    var H=window.innerHeight,idle=performance.now()-lastMove>3000;
+    R.setScissorTest(false);R.clear();R.setScissorTest(true);
+    slots.forEach(function(s){
+      var r=s.el.getBoundingClientRect();if(r.width<5||r.bottom<0||r.top>H)return;
+      var dx=idle?0:cl((mouseX-(r.left+r.width/2))/450),dy=idle?0:cl((mouseY-(r.top+r.height/2))/450);
+      if(idle){if(!still)s.spin+=0.006;}else{s.spin+=(Math.round(s.spin/TAU)*TAU-s.spin)*0.05;}
+      var kk=still?1:0.1;s.cx+=(dx-s.cx)*kk;s.cy+=(dy-s.cy)*kk;
+      s.G.rotation.y=s.spin+s.cx*1.0;s.G.rotation.x=0.05+s.cy*0.4;if(s.X){s.X.rotation.y=s.cx*0.4;s.X.rotation.x=0.05+s.cy*0.25;}
+      R.setViewport(r.left,H-r.bottom,r.width,r.height);R.setScissor(r.left,H-r.bottom,r.width,r.height);
+      s.cam.aspect=r.width/r.height;s.cam.updateProjectionMatrix();R.render(s.sc,s.cam);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
